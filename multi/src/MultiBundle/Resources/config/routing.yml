@@ -1,0 +1,7 @@
+multi_realisation:
+    resource: "@MultiBundle/Resources/config/routing/realisation.yml"
+    prefix:   /realisation
+
+multi_homepage:
+    path:     /
+    defaults: { _controller: MultiBundle:Default:index }

@@ -1,0 +1,24 @@
+VisiteurBundle\Entity\Inscription:
+    type: entity
+    table: null
+    repositoryClass: VisiteurBundle\Repository\InscriptionRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        name:
+            type: string
+            length: 255
+        nickname:
+            type: string
+            length: 255
+        age:
+            type: integer
+        salary:
+            type: float
+        birthday:
+            type: datetime
+    lifecycleCallbacks: {  }

@@ -1,0 +1,17 @@
+MultiBundle\Entity\Realisation:
+    type: entity
+    table: null
+    repositoryClass: MultiBundle\Repository\RealisationRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        titre:
+            type: string
+            length: 255
+        article:
+            type: text
+    lifecycleCallbacks: {  }

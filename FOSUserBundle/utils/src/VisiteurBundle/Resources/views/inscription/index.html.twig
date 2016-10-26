@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Inscription list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Nickname</th>
+                <th>Age</th>
+                <th>Salary</th>
+                <th>Birthday</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for inscription in inscriptions %}
+            <tr>
+                <td><a href="{{ path('inscription_show', { 'id': inscription.id }) }}">{{ inscription.id }}</a></td>
+                <td>{{ inscription.name }}</td>
+                <td>{{ inscription.nickname }}</td>
+                <td>{{ inscription.age }}</td>
+                <td>{{ inscription.salary }}</td>
+                <td>{% if inscription.birthday %}{{ inscription.birthday|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('inscription_show', { 'id': inscription.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('inscription_edit', { 'id': inscription.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('inscription_new') }}">Create a new entry</a>
+        </li>
+    </ul>
+{% endblock %}

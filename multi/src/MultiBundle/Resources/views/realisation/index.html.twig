@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Realisation list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Titre</th>
+                <th>Article</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for realisation in realisations %}
+            <tr>
+                <td><a href="{{ path('realisation_show', { 'id': realisation.id }) }}">{{ realisation.id }}</a></td>
+                <td>{{ realisation.titre }}</td>
+                <td>{{ realisation.article }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('realisation_show', { 'id': realisation.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('realisation_edit', { 'id': realisation.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('realisation_new') }}">Create a new entry</a>
+        </li>
+    </ul>
+{% endblock %}

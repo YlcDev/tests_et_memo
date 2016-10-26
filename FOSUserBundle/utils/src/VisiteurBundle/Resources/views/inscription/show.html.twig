@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Inscription</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ inscription.id }}</td>
+            </tr>
+            <tr>
+                <th>Name</th>
+                <td>{{ inscription.name }}</td>
+            </tr>
+            <tr>
+                <th>Nickname</th>
+                <td>{{ inscription.nickname }}</td>
+            </tr>
+            <tr>
+                <th>Age</th>
+                <td>{{ inscription.age }}</td>
+            </tr>
+            <tr>
+                <th>Salary</th>
+                <td>{{ inscription.salary }}</td>
+            </tr>
+            <tr>
+                <th>Birthday</th>
+                <td>{% if inscription.birthday %}{{ inscription.birthday|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('inscription_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('inscription_edit', { 'id': inscription.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

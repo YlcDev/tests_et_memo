@@ -1,0 +1,7 @@
+visiteur_inscription:
+    resource: "@VisiteurBundle/Resources/config/routing/inscription.yml"
+    prefix:   /inscription
+
+visiteur_homepage:
+    path:     /
+    defaults: { _controller: VisiteurBundle:Default:index }
